@@ -44,5 +44,5 @@ func main(){
     fmt.Println(res)
 
     res2 := fmt.Sprintf("There are %[2]d oranges %d apples %[1]d plums", n1, n2, n3)
-    // fmt.Println(res2)
+    fmt.Println(res2)
 }
