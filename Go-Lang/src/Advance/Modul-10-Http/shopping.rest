@@ -1,0 +1,15 @@
+### List Shopping Items
+GET http://localhost:8080/shopping-items
+
+
+### Create new shopping Items
+POST http://localhost:8080/shopping-items
+Content-Type: application/json
+
+{
+    "name" : "Mie"
+}
+
+
+###
+DELETE http://localhost:8080/shopping-items/64699a5f-2848-4901-b840-4424b79363cf
