@@ -14,6 +14,6 @@ func main(){
 	fmt.Println(identity)
 	fmt.Println(identity["Age"])
 
-	// person := make(map[string]string{}) -> create new map
+	// person := make(map[string]string) -> create new map
 	// delete(map,key) -> delete data di map pada key yang ada
 }

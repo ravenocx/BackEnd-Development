@@ -10,6 +10,12 @@ Go allows us to run code concurrently using goroutines. However, when concurrent
 it can lead to race conditions. Mutexes are data structures provided by the sync package.
 They can help us place a lock on different sections of data so that only one goroutine can access it at a time.
 With mutex -> we can write goroutine in safe
+
+dimana ketika kita melakukan locking terhadap mutex, 
+maka tidak ada yang bisa melakukan locking lagi sampai kita melakukan unlock
+
+variable yang di lock access nya adalah diantara method lock() dan unlock()
+
 */
 
 var (
@@ -38,9 +44,10 @@ func main(){
 	balance = 1000
 	var wg sync.WaitGroup // A WaitGroup waits for a collection of goroutines to finish
 	wg.Add(2) //The main goroutine calls Add to set the number of goroutines to wait for. (berapa banyak goroutine yang ditunggu)
+	// Terdapat wg karena ada yang namanya Deadlock (dimana antar goroutine menunggu lock sehingga tidak ada yang jalan)
 	go withdraw(700, &wg)
 	go deposit(500,&wg)
-	wg.Wait() // block main function until the all goroutine completed
+	wg.Wait() // block main function until all goroutine completed
 
 	fmt.Printf("New balance %d",balance)
 }
